@@ -5,19 +5,33 @@ function Chat() {
    
     <div className = "chat  flex-1 p:2 sm:p-6  flex flex-col h-screen  bg-gray-100">
               <div className ="flex  justify-between sm:items-center py-3 border-b-2 border-gray-200">
-              <div className="flex items-center space-x-4"></div>
+              
          
          </div>
 
+        
+
+        <div className = "chat-message flex flex-col-reverse  mx-3 flex-grow ">
+            
+                <div className = "sender  flex items-end  w-full  mb-4 w-full items-end justify-end">
+                    <div className = "flex flex-col space-y-2 text-xs max-w-xs mx-2 items-start">
+                        <div><span className = "px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">Hi hello wtf</span></div>
+                    </div>
+                        <img src="https://www.alchinlong.com/wp-content/uploads/2015/09/sample-profile.png" alt="My profile" className = "w-6 h-6 rounded-full "/>
+                </div> 
+
+                <div className = "receiver  flex  items-end mb-4 ">
+                    <img src="https://www.alchinlong.com/wp-content/uploads/2015/09/sample-profile.png" alt="My profile" className = "w-6 h-6 rounded-full "/>
+                    <div className = "flex flex-col space-y-2 text-xs max-w-xs mx-2  items-start">
+                        <div><span className = "px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">Hi hello wtf</span></div>
+                    </div>
+                </div>
+
+            
+
+           
 
 
-        <div className = "chat-message flex my-3 mx-3 sm:my-5 items-end flex-grow">
-        <div className = "flex items-end flex-grow">
-            <div className = "flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
-                <div><span className = "px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">Command was run with root privileges. I'm sure about that.</span></div></div>
-                <img src="https://www.alchinlong.com/wp-content/uploads/2015/09/sample-profile.png" alt="My profile" className = "w-6 h-6 rounded-full order-1"/>
-
-            </div>
         </div>
           
         
