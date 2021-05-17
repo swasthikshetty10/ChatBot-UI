@@ -1,12 +1,14 @@
-import React from 'react'
+import React , {useState} from 'react'
 import Chat from "./Chat"
 import Chatbutton from "./Chatbutton"
-function index() {
+function Index() {
+    const [isnotification, setNotification] = useState(true)
+    const [notificationCount, setNotificationCount] = useState(1)
     return (
-        <div className = "h-screen flex justify-center">
+        <div className = "">
             <Chatbutton />
         </div>
     )
 }
 
-export default index
+export default Index
