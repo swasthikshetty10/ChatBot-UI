@@ -5,9 +5,12 @@ function Index() {
     const [isnotification, setNotification] = useState(true)
     const [notificationCount, setNotificationCount] = useState(1)
     return (
-        <div className = "">
-            <Chatbutton />
+        <>
+        <Chat/>
+        <div className = "" onClick = {() => {} }>
+            <Chatbutton setstate = {isnotification} amount = {notificationCount}  />
         </div>
+        </>
     )
 }
 
