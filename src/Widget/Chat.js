@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { EmojiHappyIcon  , XIcon} from '@heroicons/react/solid'
 
 import styled from 'styled-components'
-const bot = { name : "EPAX" , url : "https://picsum.photos/200/300" , profile : "Swasthik's Assistant"}
+
 
 function Chat(props) {
-    const [messages , setMessages] = useState([])
+    const bot = props.bot
+    const messages = props.messages ? props.messages : []
     const MessageCard  = (props) => {
         console.log(props)
         return  props.sender ? <div className = " sender  flex items-end   mb-4 items-end justify-end">
@@ -25,7 +26,7 @@ function Chat(props) {
 
     const submitHandler = (value  ) => {
         if (value) {
-         setMessages([{ message : value , url : "https://picsum.photos/200/300", sender : true } ,...messages]) 
+         props.setMessages([{ message : value , url : "https://picsum.photos/200/300" , sender : true} ,...messages]) 
          value = null
         }
     }
@@ -49,7 +50,9 @@ function Chat(props) {
          </div>
       </div>
       <div class="flex items-center space-x-2">
-         <button type="button" class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+         <button type="button" class="inline-flex items-center mr-2 justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none" onClick = {()=> {
+             props.closeMessage()
+         }}>
             <XIcon className = "p-1" />
          </button>
       </div>
