@@ -8,33 +8,32 @@ function Chat(props) {
     const bot = props.bot
     const messages = props.messages ? props.messages : []
     const MessageCard  = (props) => {
-        console.log(props)
-        return  props.sender ? <div className = " sender  flex items-end   mb-4 items-end justify-end">
+        return  props.sender ? <div className = " sender  flex    mb-4 items-end justify-end">
                     <div className = "flex flex-col space-y-2 text-xs sm:text-s max-w-xs  mx-2 items-start">
-                        <div><span className = "px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">{props.message}</span></div>
+                        <div><p className = "px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">{props.message}</p></div>
                     </div>
                         <img src= {props.url} alt="My profile" className = "w-6 h-6 rounded-full "/>
                     </div> 
 
                 : <div className = "receiver  flex  mb-4 items-end mb-4 ">
                     <img src= {props.url }  alt="My profile" className = "w-6 h-6 rounded-full "/>
-                    <div className = "flex flex-col space-y-2 text-xs max-w-xs mx-2  items-start">
-                        <div><span className = "px-4 py-2 rounded-lg   bg-gray-300 text-gray-600">{props.message}</span></div>
+                    <div className = "flex flex-col space-y-2 text-xs sm:text-s max-w-xs  mx-2 items-start">
+                        <div><p className = "px-4 py-2 rounded-lg   bg-gray-300 text-gray-600">{props.message}</p></div>
                     </div>
                     </div>
     }
 
     const submitHandler = (value  ) => {
         if (value) {
-         props.setMessages([{ message : value , url : "https://picsum.photos/200/300" , sender : true} ,...messages]) 
+         props.setMessages([{ message : value , url : "https://picsum.photos/200/300" , sender : true} ,...messages] , value) 
          value = null
         }
     }
     return (
    
-    <Wrapper className = "chat h-auto  flex flex-col flex-1 h-full bg-gray-100">
+    <Wrapper className = "chat  flex flex-col flex-1 h-full  bg-gray-100">
         
-        <div class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
+        <div class="flex sm:items-center justify-between p-3  border-b-2 border-gray-200">
       <div class="flex items-center space-x-4">
          <img src= {bot.url} alt="" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full"/>
          <div class="flex flex-col  leading-tight">
@@ -60,7 +59,7 @@ function Chat(props) {
 
         
 
-        <div className = "chat-message overflow-y-scroll overflow-x-hidden  px-2 flex flex-col-reverse   mx-3 flex-grow ">
+        <div className = "chat-message overflow-y-scroll overflow-x-hidden  pl-2 flex flex-col-reverse   flex-grow ">
             
             {messages.map((ele) => {
                 return <MessageCard url = {ele.url}  message = {ele.message}  sender = {ele.sender}/>
