@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { EmojiHappyIcon } from '@heroicons/react/solid'
+import { EmojiHappyIcon  , XIcon} from '@heroicons/react/solid'
 
 import styled from 'styled-components'
-
+const bot = { name : "EPAX" , url : "https://picsum.photos/200/300" , profile : "Swasthik's Assistant"}
 
 function Chat(props) {
     const [messages , setMessages] = useState([])
-    // const [inputvalue , setInputvalue] = useState([])
     const MessageCard  = (props) => {
         console.log(props)
         return  props.sender ? <div className = " sender  flex items-end   mb-4 items-end justify-end">
@@ -16,7 +15,7 @@ function Chat(props) {
                         <img src= {props.url} alt="My profile" className = "w-6 h-6 rounded-full "/>
                     </div> 
 
-                : <div className = "receiver  flex  items-end mb-4 ">
+                : <div className = "receiver  flex  mb-4 items-end mb-4 ">
                     <img src= {props.url }  alt="My profile" className = "w-6 h-6 rounded-full "/>
                     <div className = "flex flex-col space-y-2 text-xs max-w-xs mx-2  items-start">
                         <div><span className = "px-4 py-2 rounded-lg   bg-gray-300 text-gray-600">{props.message}</span></div>
@@ -26,17 +25,35 @@ function Chat(props) {
 
     const submitHandler = (value  ) => {
         if (value) {
-         setMessages([{ message : value , url : "https://picsum.photos/200/300", sender :" dasd"  } ,...messages]) 
+         setMessages([{ message : value , url : "https://picsum.photos/200/300", sender : true } ,...messages]) 
          value = null
         }
     }
     return (
    
     <Wrapper className = "chat h-auto  flex flex-col flex-1 h-full bg-gray-100">
-              <div className ="flex  justify-between sm:items-center py-3 border-b-2 border-gray-200">
-              
-         
+        
+        <div class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
+      <div class="flex items-center space-x-4">
+         <img src= {bot.url} alt="" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full"/>
+         <div class="flex flex-col  leading-tight">
+            <div class="text-xl sm:text-2xl mt-1 flex items-center">
+               <span class="text-gray-700 mr-3">{bot.name}</span>
+               <span class="text-green-500">
+                  <svg width="10" height="10">
+                     <circle cx="5" cy="5" r="5" fill="currentColor"></circle>
+                  </svg>
+               </span>
+            </div>
+            <span class="text-base text-gray-600">{bot.profile}</span>
          </div>
+      </div>
+      <div class="flex items-center space-x-2">
+         <button type="button" class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+            <XIcon className = "p-1" />
+         </button>
+      </div>
+   </div>
 
         
 
@@ -68,6 +85,10 @@ function Chat(props) {
                     </svg>
                     </button>
                 </div>
+                
+        </div>
+        <div className = "flex pt-1 justify-end">
+        <a  href = "https://github.com/swasthikshetty10" className = "text-gray-400  text-xs"> by Swasthik shetty</a>
         </div>
         </form>
     </Wrapper>  

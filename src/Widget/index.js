@@ -8,6 +8,7 @@ function Index(props) {
 
     return (
         <div className = " ">
+        
         <div className = {chat ? "block" : "hidden" }>
         <div {...props}>
         <Chat/>
