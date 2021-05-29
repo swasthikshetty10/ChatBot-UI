@@ -6,15 +6,17 @@ function App() {
   const handleMessages = (newmessages, newmassage = null) => {
     const f = [...newmessages]
     setMessages(newmessages)
-
     BotMsg(f)
   }
 
   const BotMsg = async (messages) => {
-
-    fetch('https://geek-jokes.sameerkumar.website/api')
+    const message = messages[0].message
+    fetch(`https://epaxbot.herokuapp.com/chat/${message}/?format=json`)
       .then(response => response.json())
-      .then(data => { setMessages([{ message: data, url: bot.url }, ...messages]) });
+      .then(data => {
+        setMessages([{ message: data.response, url: bot.url }, ...messages]);
+        console.log(data.tag);
+      });
   }
 
   return (
@@ -26,7 +28,6 @@ function App() {
           bot={bot}
           setMessages={handleMessages}
           messages={messages}
-
         />
       </div>
     </div>
@@ -34,3 +35,4 @@ function App() {
 }
 
 export default App;
+//
